@@ -55,7 +55,7 @@ smart_maze_agent/
 ### Human Player
 - Move through the maze with the arrow keys.
 - **Win** by catching the robot (standing on the same cell) **or** stepping on the real flag before the robot does.
-- All four flags look identical — watch the robot's live A\* path to deduce which one is real.
+- All four flags look identical - watch the robot's live A\* path to deduce which one is real.
 - Stepping on a **fake flag** costs **−10 points**.
 
 ### Robot (AI Agent)
@@ -85,7 +85,7 @@ Selected on the start screen (keys **1 / 2 / 3** or mouse click):
 Iterative **recursive backtracking** (depth-first search):
 - Uses an explicit stack — no Python recursion limit issues.
 - Carves random passages until every cell is visited exactly once.
-- Guarantees a **perfect maze** — exactly one path between any two cells.
+- Guarantees a **perfect maze** - exactly one path between any two cells.
 
 ### 2 - A\* Pathfinding (`pathfinding/astar.py`)
 Python adaptation of the C++ A\* from the course slides:
