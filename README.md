@@ -81,13 +81,13 @@ Selected on the start screen (keys **1 / 2 / 3** or mouse click):
 
 ## AI Components
 
-### 1 — Maze Generation (`maze/generator.py`)
+### 1 - Maze Generation (`maze/generator.py`)
 Iterative **recursive backtracking** (depth-first search):
 - Uses an explicit stack — no Python recursion limit issues.
 - Carves random passages until every cell is visited exactly once.
 - Guarantees a **perfect maze** — exactly one path between any two cells.
 
-### 2 — A\* Pathfinding (`pathfinding/astar.py`)
+### 2 - A\* Pathfinding (`pathfinding/astar.py`)
 Python adaptation of the C++ A\* from the course slides:
 
 | C++ concept | Python equivalent |
@@ -101,7 +101,7 @@ Python adaptation of the C++ A\* from the course slides:
 
 Heuristic: **Manhattan distance** — admissible on a unit-cost grid.
 
-### 3 — Robot Behaviour (`agents/robot.py`)
+### 3 - Robot Behaviour (`agents/robot.py`)
 
 | Mode | Condition | Action |
 |------|-----------|--------|
@@ -112,19 +112,19 @@ Heuristic: **Manhattan distance** — admissible on a unit-cost grid.
 - **Deception is invisible to the player** — the HUD always shows "PURSUE"; the robot looks identical in both modes. The player must infer intent from the observed path.
 - After deception ends a cooldown (~25 moves) prevents immediate re-triggering.
 
-### 4 — Dynamic Wall Mutation (`maze/mutator.py`)
+### 4 - Dynamic Wall Mutation (`maze/mutator.py`)
 Every N seconds (difficulty-dependent), up to 4 random wall edges are toggled:
 - Opening a wall is always safe.
 - Closing a wall only applies if a **BFS connectivity check** confirms all 300 cells remain reachable.
 - Forces the robot to re-plan in real time.
 
-### 5 — Fog of War (`game/renderer.py`)
+### 5 - Fog of War (`game/renderer.py`)
 The human can only see cells within their **fog radius** (Manhattan distance):
 - Cells outside the radius render as near-black — walls, flags, and the robot are hidden.
 - The robot's A\* path is only drawn for segments that fall inside the fog.
 - The player must move toward the robot to observe its path and deduce the real flag.
 
-### 6 — Start Screen & Difficulty Menu (`game/menu.py`)
+### 6 - Start Screen & Difficulty Menu (`game/menu.py`)
 - Three clickable difficulty cards with per-preset stat labels.
 - Keyboard shortcuts 1 / 2 / 3 for fast selection.
 - Press **M** in-game to return to the menu at any time.
