@@ -56,7 +56,7 @@ smart_maze_agent/
 - Move through the maze with the arrow keys.
 - **Win** by catching the robot (standing on the same cell) **or** stepping on the real flag before the robot does.
 - All four flags look identical - watch the robot's live A\* path to deduce which one is real.
-- Stepping on a **fake flag** costs **−10 points**.
+- Stepping on a **fake flag** costs **-10 points**.
 
 ### Robot (AI Agent)
 - Navigates autonomously using A\*.
@@ -83,7 +83,7 @@ Selected on the start screen (keys **1 / 2 / 3** or mouse click):
 
 ### 1 - Maze Generation (`maze/generator.py`)
 Iterative **recursive backtracking** (depth-first search):
-- Uses an explicit stack — no Python recursion limit issues.
+- Uses an explicit stack - no Python recursion limit issues.
 - Carves random passages until every cell is visited exactly once.
 - Guarantees a **perfect maze** - exactly one path between any two cells.
 
@@ -95,11 +95,11 @@ Python adaptation of the C++ A\* from the course slides:
 | `Node { path[], g, h }` | heap entry `(f, g, cell)` + `came_from` dict |
 | `PATH* S` — open list sorted by `h` | `heapq` min-heap (sorted by `f = g + h`) |
 | `sort(S)` | `heapq` maintains order automatically |
-| `find(S, node)` + update | `best_g` dict — O(1) lookup |
+| `find(S, node)` + update | `best_g` dict - O(1) lookup |
 | `Successeurs(head)` | loop over four neighbours through open passages |
 | `Tmp.h = Tmp.g + T[j].cost` | `new_f = new_g + heuristic(neighbour, goal)` |
 
-Heuristic: **Manhattan distance** — admissible on a unit-cost grid.
+Heuristic: **Manhattan distance** - admissible on a unit-cost grid.
 
 ### 3 - Robot Behaviour (`agents/robot.py`)
 
@@ -109,7 +109,7 @@ Heuristic: **Manhattan distance** — admissible on a unit-cost grid.
 | **Flee** | Human ≤ `flee_distance` away | A\* path toward the farthest reachable cell (BFS from human) |
 | **Deceive** | In pursue mode + random trigger | A\* path toward a random **fake** flag for 7–13 steps, then revert |
 
-- **Deception is invisible to the player** — the HUD always shows "PURSUE"; the robot looks identical in both modes. The player must infer intent from the observed path.
+- **Deception is invisible to the player** - the HUD always shows "PURSUE"; the robot looks identical in both modes. The player must infer intent from the observed path.
 - After deception ends a cooldown (~25 moves) prevents immediate re-triggering.
 
 ### 4 - Dynamic Wall Mutation (`maze/mutator.py`)
@@ -136,10 +136,10 @@ The human can only see cells within their **fog radius** (Manhattan distance):
 | Element | Meaning |
 |---------|---------|
 | Blue circle | Human player |
-| Orange square | Robot — pursue or deceive mode (looks the same intentionally) |
-| Red square | Robot — flee mode |
+| Orange square | Robot - pursue or deceive mode (looks the same intentionally) |
+| Red square | Robot - flee mode |
 | Green line | Robot's live A\* path (only visible inside the fog radius) |
-| Yellow flag | Any flag — real or fake, all identical |
+| Yellow flag | Any flag - real or fake, all identical |
 | Dark cells | Outside the player's fog of war |
 | Cyan progress bar | Countdown to next wall shift |
 
