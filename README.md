@@ -1,6 +1,6 @@
 # Adversarial Maze Agent
 
-A two-player adversarial game built in **Python + Pygame** for the AI university project (I3335).  
+A two-player adversarial game built in **Python + Pygame**.  
 A human navigates a procedurally generated, dynamically shifting maze while an AI robot races to reach a hidden flag using **A\* pathfinding**.
 
 ---
